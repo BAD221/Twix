@@ -8136,18 +8136,18 @@ Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
 end
 --     Source Twix     --
-if text == "غنيلي" and ChCheck(msg) then
-data,res = https.request('https://apiHid.ml/Audios.php')
+if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
 if res == 200 then
-Audios = json:decode(data)
-if Audios.Info == true then
-local Text ='⸙ ¦ تم اختيار المقطع الصوتي لك'
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='℘︙تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⸙ Twix TeAM .',url="t.me/x_xxax"}},
+{{text = '⸙ ¦ Twix TEAM.',url="t.me/x_xxax"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
