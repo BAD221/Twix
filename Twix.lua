@@ -5629,6 +5629,24 @@ end
 end,nil)
 end 
 end
+if text == 'تفعيل غنيلي' and CoSu(msg) then   
+if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+Text = ' ℘︙ تم تفعيل امر غنيلي الان ارسل غنيلي'
+database:del(bot_id..'sing:for:me'..msg.chat_id_)  
+else
+Text = ' ℘︙ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل غنيلي' and CoSu(msg) then  
+if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
+Text = '\n ℘︙ تم تعطيل امر غنيلي'
+else
+Text = '\n ℘︙ بالتاكيد تم تعطيل امر غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 --     Source Twix     --
 if Admin(msg) then
 if text == "المميزين" and ChCheck(msg) then 
