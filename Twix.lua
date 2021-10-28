@@ -567,9 +567,9 @@ send_api = send_api.."&reply_to_message_id="..reply_id
 end 
 return GetApi(send_api) 
 end
---     Source Twix     --
+--     Source Twix    --
 function EditMsg(chat_id, message_id, text, markdown) local send_api = "https://api.telegram.org/bot"..TokenBot.."/editMessageText?chat_id="..chat_id.."&message_id="..message_id.."&text="..URL.escape(text).."&parse_mode=Markdown&disable_web_page_preview=true" return GetApi(send_api)  end
---     Source Twix     --
+--     Source Twix    --
 function pin(channel_id, message_id, disable_notification) 
 tdcli_function ({ 
 ID = "PinChannelMessage", 
