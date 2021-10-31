@@ -9529,7 +9529,7 @@ local text =  [[
 Dev_Hid(msg.chat_id_, msg.id_, 1, (Help or text), 1, 'md')
 end
 --     Source Twix     --
-if text == 'تحديث السورس ℘' and DevSoFi(msg) then 
+if text == 'تحديث السورس' and DevSoFi(msg) then 
 os.execute('rm -rf Twix.lua')
 os.execute('wget https://raw.githubusercontent.com/BAD221/Twix/main/Twix.lua')
 send(msg.chat_id_, msg.id_,' ⌔︙ تم تحديث السورس \n ⌔︙ تم التحديث الى اخر اصدار لسورس توكس')
