@@ -7932,55 +7932,6 @@ send(msg.chat_id_, msg.id_,MyNumber)
 end,nil)
 end
 --     Source Twix     --
-if text == "تفعيل الزخرفه" and Manager(msg) and ChCheck(msg) then
-local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل الزخرفه بنجاح'
-Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
-DevHid:del(Twix..'Hid:Zrf:Hid'..msg.chat_id_) 
-end
-if text == "تعطيل الزخرفه" and Manager(msg) and ChCheck(msg) then
-local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تعطيل الزخرفه بنجاح'
-Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
-DevHid:set(Twix..'Hid:Zrf:Hid'..msg.chat_id_,true)  
-end
-if DevHid:get(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_) then 
-if text and text == 'الغاء' then 
-Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم الغاء امر الزخرفه', 1, 'md')
-DevHid:del(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_)
-return false  
-end 
-UrlZrf = https.request('https://apiHid.ml/zrf.php?Hid='..URL.escape(text)) 
-Zrf = JSON.decode(UrlZrf) 
-t = "⌔︙ قائمة الزخرفه ↜ ⤈\n"
-i = 0
-for k,v in pairs(Zrf.ok) do
-i = i + 1
-t = t..i.."~ `"..v.."` \n"
-end
-Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'md')
-DevHid:del(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_)
-return false   
-end
-if not DevHid:get(Twix..'Hid:Zrf:Hid'..msg.chat_id_) then
-if text == 'زخرفه' and ChCheck(msg) or text == 'الزخرفه' and ChCheck(msg) then  
-DevHid:setex(Twix.."Zrf:Hid"..msg.chat_id_..""..msg.sender_user_id_,300,true)
-Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ ارسل لي الكلمه لزخرفتها \nيمكنك الزخرفة باللغه { en } ~ { ar } ', 1, 'md')
-end
-end
-if not DevHid:get(Twix..'Hid:Zrf:Hid'..msg.chat_id_) then
-if text and text:match("^زخرفه (.*)$") and ChCheck(msg) or text and text:match("^زخرف (.*)$") and ChCheck(msg) then 
-local TextZrf = text:match("^زخرفه (.*)$") or text:match("^زخرف (.*)$") 
-UrlZrf = https.request('https://apiHid.ml/zrf.php?Hid='..URL.escape(TextZrf)) 
-Zrf = JSON.decode(UrlZrf) 
-t = "⌔︙ قائمة الزخرفه ↜ ⤈\n"
-i = 0
-for k,v in pairs(Zrf.ok) do
-i = i + 1
-t = t..i.."~ `"..v.."` \n"
-end
-Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'md')
-end
-end
---     Source Twix     --
 if text == "تفعيل الابراج" and Manager(msg) and ChCheck(msg) then
 local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل الابراج بنجاح'
 Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
@@ -8135,6 +8086,24 @@ Mean = JSON.decode(UrlMean)
 t = Mean.ok.Hid
 Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
+end
+if text == 'تفعيل غنيلي' and CoSu(msg) then   
+if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+Text = ' ℘︙ تم تفعيل امر غنيلي الان ارسل غنيلي'
+database:del(bot_id..'sing:for:me'..msg.chat_id_)  
+else
+Text = ' ℘︙ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل غنيلي' and CoSu(msg) then  
+if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
+Text = '\n ℘︙ تم تعطيل امر غنيلي'
+else
+Text = '\n ℘︙ بالتاكيد تم تعطيل امر غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
 end
 --     Source Twix     --
 if text == "غنيلي" and ChCheck(msg) then
