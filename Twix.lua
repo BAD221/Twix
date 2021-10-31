@@ -8000,7 +8000,6 @@ t = Brg.ok.Hid
 Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
 end
-    
 --     Source Twix     --
 if text and (text == "تفعيل اوامر النسب" or text == "تفعيل نسبه الحب" or text == "تفعيل نسبه الكره" or text == "تفعيل نسبه الرجوله" or text == "تفعيل نسبه الانوثه" or text == "تفعيل نسبه الغباء") and Manager(msg) and ChCheck(msg) then
 local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل اوامر النسب'
@@ -9565,7 +9564,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
 Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ جاري تحديث سورس تويكس', 1, 'md') 
 os.execute('rm -rf Twix.lua') 
-os.execute('wget https://raw.githubusercontent.com/HidTwixTEAM/Twix/main/Twix.lua') 
+os.execute('wget https://raw.githubusercontent.com/HidTwixTEAM/Twix/master/Twix.lua') 
 dofile('Twix.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
