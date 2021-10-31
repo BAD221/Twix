@@ -7932,6 +7932,55 @@ send(msg.chat_id_, msg.id_,MyNumber)
 end,nil)
 end
 --     Source Twix     --
+if text == "تفعيل الزخرفه" and Manager(msg) and ChCheck(msg) then
+local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل الزخرفه بنجاح'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
+DevHid:del(Twix..'Hid:Zrf:Hid'..msg.chat_id_) 
+end
+if text == "تعطيل الزخرفه" and Manager(msg) and ChCheck(msg) then
+local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تعطيل الزخرفه بنجاح'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
+DevHid:set(Twix..'Hid:Zrf:Hid'..msg.chat_id_,true)  
+end
+if DevHid:get(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_) then 
+if text and text == 'الغاء' then 
+Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم الغاء امر الزخرفه', 1, 'md')
+DevHid:del(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_)
+return false  
+end 
+UrlZrf = https.request('https://apiHid.ml/zrf.php?Hid='..URL.escape(text)) 
+Zrf = JSON.decode(UrlZrf) 
+t = "⌔︙ قائمة الزخرفه ↜ ⤈\n"
+i = 0
+for k,v in pairs(Zrf.ok) do
+i = i + 1
+t = t..i.."~ `"..v.."` \n"
+end
+Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'md')
+DevHid:del(Twix..'Zrf:Hid'..msg.chat_id_..''..msg.sender_user_id_)
+return false   
+end
+if not DevHid:get(Twix..'Hid:Zrf:Hid'..msg.chat_id_) then
+if text == 'زخرفه' and ChCheck(msg) or text == 'الزخرفه' and ChCheck(msg) then  
+DevHid:setex(Twix.."Zrf:Hid"..msg.chat_id_..""..msg.sender_user_id_,300,true)
+Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ ارسل لي الكلمه لزخرفتها \nيمكنك الزخرفة باللغه { en } ~ { ar } ', 1, 'md')
+end
+end
+if not DevHid:get(Twix..'Hid:Zrf:Hid'..msg.chat_id_) then
+if text and text:match("^زخرفه (.*)$") and ChCheck(msg) or text and text:match("^زخرف (.*)$") and ChCheck(msg) then 
+local TextZrf = text:match("^زخرفه (.*)$") or text:match("^زخرف (.*)$") 
+UrlZrf = https.request('https://apiHid.ml/zrf.php?Hid='..URL.escape(TextZrf)) 
+Zrf = JSON.decode(UrlZrf) 
+t = "⌔︙ قائمة الزخرفه ↜ ⤈\n"
+i = 0
+for k,v in pairs(Zrf.ok) do
+i = i + 1
+t = t..i.."~ `"..v.."` \n"
+end
+Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'md')
+end
+end
+--     Source Twix     --
 if text == "تفعيل الابراج" and Manager(msg) and ChCheck(msg) then
 local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل الابراج بنجاح'
 Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, HidTwixTEAM, 14, string.len(msg.sender_user_id_))
@@ -7951,6 +8000,7 @@ t = Brg.ok.Hid
 Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
 end
+    
 --     Source Twix     --
 if text and (text == "تفعيل اوامر النسب" or text == "تفعيل نسبه الحب" or text == "تفعيل نسبه الكره" or text == "تفعيل نسبه الرجوله" or text == "تفعيل نسبه الانوثه" or text == "تفعيل نسبه الغباء") and Manager(msg) and ChCheck(msg) then
 local HidTwixTEAM = '⌔︙ بواسطه‍ ↜ '..HidRank(msg)..' \n⌔︙ تم تفعيل اوامر النسب'
@@ -9511,11 +9561,15 @@ local text =  [[
 Dev_Hid(msg.chat_id_, msg.id_, 1, (Help or text), 1, 'md')
 end
 --     Source Twix     --
-if text == 'تحديث السورس' and DevSoFi(msg) then 
-os.execute('rm -rf Twix.lua')
-os.execute('wget https://raw.githubusercontent.com/BAD221/Twix/main/Twix.lua')
-send(msg.chat_id_, msg.id_,' ⌔︙ تم تحديث السورس \n ⌔︙ تم التحديث الى اخر اصدار لسورس توكس')
-dofile('DRAGON.lua')  
+if SecondSudo(msg) then
+if text == "تحديث السورس" or text == "تحديث سورس" then 
+Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ جاري تحديث سورس تويكس', 1, 'md') 
+os.execute('rm -rf Twix.lua') 
+os.execute('wget https://raw.githubusercontent.com/HidTwixTEAM/Twix/master/Twix.lua') 
+dofile('Twix.lua') 
+io.popen("rm -rf ../.telegram-cli/*")
+print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
+Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم التحديث الى الاصدار الجديد', 1, 'md') 
 end
 if text == 'تحديث' or text == 'تحديث البوت' or text == '↜ تحديث ⸙' then  
 dofile('Twix.lua') 
