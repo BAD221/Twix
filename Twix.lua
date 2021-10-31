@@ -9529,15 +9529,11 @@ local text =  [[
 Dev_Hid(msg.chat_id_, msg.id_, 1, (Help or text), 1, 'md')
 end
 --     Source Twix     --
-if SecondSudo(msg) then
-if text == "تحديث السورس" or text == "تحديث سورس" then 
-Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ جاري تحديث سورس تويكس', 1, 'md') 
-os.execute('rm -rf Twix.lua') 
-os.execute('wget https://raw.githubusercontent.com/HidTwixTEAM/Twix/master/Twix.lua') 
-dofile('Twix.lua') 
-io.popen("rm -rf ../.telegram-cli/*")
-print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
-Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم التحديث الى الاصدار الجديد', 1, 'md') 
+if text == 'تحديث السورس ℘' and DevSoFi(msg) then 
+os.execute('rm -rf Twix.lua')
+os.execute('wget https://raw.githubusercontent.com/BAD221/Twix/main/Twix.lua')
+send(msg.chat_id_, msg.id_,' ⌔︙ تم تحديث السورس \n ⌔︙ تم التحديث الى اخر اصدار لسورس توكس')
+dofile('DRAGON.lua')  
 end
 if text == 'تحديث' or text == 'تحديث البوت' or text == '↜ تحديث ⸙' then  
 dofile('Twix.lua') 
