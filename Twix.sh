@@ -4,11 +4,6 @@ Version=`lsb_release -rs | cut -f1 -d"."`
 install() {
 echo -e "\033[0;36m"
 echo -e "  ~ Welcome To Source Twix - اهلا بك في سورس تويكس ~"
-echo -e " _____          _        _____"
-echo -e "|_   _|_      _(_)_  __ |_   _|__  __ _ _ __ ___"
-echo -e "  | | \ \ /\ / / \ \/ /   | |/ _ \/ _` | '_ ` _ \"
-echo -e "  | |  \ V  V /| |>  <    | |  __/ (_| | | | | | |"
-echo -e "  |_|   \_/\_/ |_/_/\_\   |_|\___|\__,_|_| |_| |_|"
 echo -e "     ~ { Setting Up Offices - جاري رفع المكاتب } ~"
 echo -e "\033[0m"
 sudo apt-get update -y
