@@ -9148,11 +9148,6 @@ DevHid:set(Twix..'Hid:Help', text)
 Dev_Hid(msg.chat_id_, msg.id_, 1, text , 1, 'md')
 return false end
 end
-if text and text:match('^بحث (.*)$') then 
-local TextSearch = text:match('^بحث (.*)$') 
-local msg_id = msg.id_/2097152/0.5
-local done = json:decode(https.request("https://mahmoudm50.xyz/download.php?token="..token.."&chat="..msg.chat_id_.."&rep="..msg_id.."&text="..URL.escape(TextSearch))) 
-end
 if text == "الاوامر" or text == "اوامر" or text == "مساعده" then
 if not Admin(msg) then
 Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ هذا الامر يخص الرتب الاعلى فقط\n⌔︙ ارسل ↜ (م6) لعرض اوامر الاعضاء', 1, 'md')
@@ -9184,32 +9179,6 @@ DevHid:del(Twix..'Hid:Help01'..msg.sender_user_id_)
 DevHid:set(Twix..'Hid:Help1', text)
 Dev_Hid(msg.chat_id_, msg.id_, 1, text , 1, 'md')
 return false end
-end
-if DAata and DAata:match('yt@(.*)/m@(%d+)') then
-local Id_Link = {string.match(DAata,"^yt@(.*)/m@(%d+)$")}
-tdcli_function ({ID = "GetUser",user_id_ = bot_id,},function(arg,data) 
-DeleteMessage(Chat_id,{[0] = Msg_id})  
-local textt = '- من فضلك اختر نوع التنزيل'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'تنزيل صوت', callback_data="mp3/"..Id_Link[1].."/@m"..Id_Link[2]},
-},
-{
-{text = 'تنزيل فيديو', callback_data="mp4/"..Id_Link[1].."/@m"..Id_Link[2]},
-},
-}
-local msg_idd = Msg_id/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..Chat_id..'&text='..textt..'&reply_to_message_id='..Id_Link[2]..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end,nil) 
-elseif DAata and DAata:match('mp3/(.*)/@m(%d+)') then
-local kkp = {string.match(DAata,"^mp3/(.*)/@m(%d+)$")}
-DeleteMessage(Chat_id,{[0] = Msg_id})    
-require("socket.http").request("http://167.71.14.2/ytd.php?url="..kkp[1].."&token="..token.."&chat="..data.chat_id_.."&rep="..kkp[2].."&type=mp3")
-elseif DAata and DAata:match('mp4/(.*)/@m(%d+)') then
-local kkp = {string.match(DAata,"^mp4/(.*)/@m(%d+)$")}
-DeleteMessage(Chat_id,{[0] = Msg_id})    
-require("socket.http").request("http://167.71.14.2/ytd.php?url="..kkp[1].."&token="..token.."&chat="..data.chat_id_.."&rep="..kkp[2].."&type=mp4")
 end
 if text == "م1" or text == "م١" or text == "اوامر1" or text == "اوامر١" then
 if not Admin(msg) then
