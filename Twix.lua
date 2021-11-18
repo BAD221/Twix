@@ -9564,7 +9564,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
 Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ جاري تحديث سورس تويكس', 1, 'md') 
 os.execute('rm -rf Twix.lua') 
-os.execute('wget https://raw.githubusercontent.com/HidTwixTEAM/Twix/main/Twix.lua') 
+os.execute('wget https://raw.githubusercontent.com/BAD221/Twix.github.io/root/Twix.lua') 
 dofile('Twix.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
@@ -9575,13 +9575,6 @@ dofile('Twix.lua')
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n        ( تم تحديث ملفات البوت )        \n\27[0;34;49m\n") 
 Dev_Hid(msg.chat_id_, msg.id_, 1, "⌔︙ تم تحديث ملفات البوت", 1, "md")
-end 
---     Source Twix     --
-if text == 'ترسيت' or text == 'reload' or text == 'أعادة التشغيل' then  
-dofile('killall screen') 
-io.popen("Reload ~ ./Twix/Run")
-print("\27[31;47m\n        ( تــم أعـاده تشغيل البوت )        \n\27[0;34;49m\n") 
-Dev_Hid(msg.chat_id_, msg.id_, 1, "⌔︙ تــم أعـاده تشغيل البوت", 1, "md")
 end 
 --     Source Twix     --
 if text == 'الملفات' then
