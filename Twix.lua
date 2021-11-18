@@ -9564,7 +9564,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
 Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ جاري تحديث سورس تويكس', 1, 'md') 
 os.execute('rm -rf Twix.lua') 
-os.execute('https://raw.githubusercontent.com/BAD221/twix.github.io/root/GetVersion.txt') 
+os.execute('wget https://raw.githubusercontent.com/BAD221/Twix/main/Twix.lua') 
 dofile('Twix.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
