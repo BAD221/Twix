@@ -7887,18 +7887,18 @@ local txt = {string.match(text, "^(كول) (.*)$")}
 Dev_Hid(msg.chat_id_,0, 1, txt[2], 1, 'md')
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
-if text == "غنيلي" and ChCheck(msg) then   
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if text == "غنيلي" and ChCheck(msg) then
+data,res = https.request('https://apiabs.ml/Audios.php')
 if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='⌔︙تم اختيار المقطع الصوتي لك'
+Audios = json:decode(data)
+if Audios.Info == true then
+local Text ='⌔︙ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙Source Channel.',url="t.me/x_xxax"}},
+{{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 end
 end
