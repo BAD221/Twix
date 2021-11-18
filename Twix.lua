@@ -8155,15 +8155,16 @@ Text = '\n ⌔︙ بالتاكيد تم تعطيل امر غنيلي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "غنيلي" and CoSu(msg) then
+    
+if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 data,res = https.request('https://apiabs.ml/Audios.php')
 if res == 200 then
-Audios = json:decode(data)
-if Audios.Info == true then
-local Text ='⌔︙ تم اختيار المقطع الصوتي لك'
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='⌔︙تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax"}},
+{{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(Audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
