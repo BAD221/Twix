@@ -8152,23 +8152,6 @@ Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
 end
 --     Source Twix     --
-if text == 'تفعيل غنيلي' and ChCheck(msg) then   
-Text = ' ⌔︙ تم تفعيل امر غنيلي الان ارسل غنيلي'
-database:del(bot_id..'sing:for:me'..msg.chat_id_)  
-else
-Text = ' ⌔︙ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل غنيلي' and ChCheck(msg) then  
-database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
-Text = '\n ⌔︙ تم تعطيل امر غنيلي'
-else
-Text = '\n ⌔︙ بالتاكيد تم تعطيل امر غنيلي'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
---     Source Twix     --
 if Admin(msg) then
 if DevHid:get(Twix..'Hid:LockSettings'..msg.chat_id_) then 
 if text == "الروابط" then if DevHid:get(Twix..'Hid:Lock:Links'..msg.chat_id_) then mute_links = 'مقفله' else mute_links = 'مفتوحه' end local HidTwixTEAM = "\n" .."⌔︙ الروابط ↜ "..mute_links.."\n" Dev_Hid(msg.chat_id_, msg.id_, 1, HidTwixTEAM, 1, 'md') end
