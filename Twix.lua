@@ -7887,6 +7887,21 @@ local txt = {string.match(text, "^(كول) (.*)$")}
 Dev_Hid(msg.chat_id_,0, 1, txt[2], 1, 'md')
 DeleteMessage(msg.chat_id_,{[0] = msg.id_})
 end
+if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='⌔︙تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '⌔︙Source Channel.',url="t.me/x_xxax"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 if text and text:match("^انطق (.*)$") then
 local UrlAntk = https.request('https://apiHid.ml/Antk.php?Hid='..URL.escape(text:match("^انطق (.*)$")))
 Antk = JSON.decode(UrlAntk)
@@ -8137,20 +8152,23 @@ Dev_Hid(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
 end
 --     Source Twix     --
-if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='⌔︙تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⌔︙TWIX TEAM . ',url="t.me/X_XXAX"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+if text == 'تفعيل غنيلي' and CoSu(msg) then   
+if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+Text = ' ⌔︙ تم تفعيل امر غنيلي الان ارسل غنيلي'
+database:del(bot_id..'sing:for:me'..msg.chat_id_)  
+else
+Text = ' ⌔︙ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
 end
+send(msg.chat_id_, msg.id_,Text) 
 end
+if text == 'تعطيل غنيلي' and CoSu(msg) then  
+if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
+Text = '\n ⌔︙ تم تعطيل امر غنيلي'
+else
+Text = '\n ⌔︙ بالتاكيد تم تعطيل امر غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
 end
 --     Source Twix     --
 if Admin(msg) then
