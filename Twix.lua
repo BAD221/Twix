@@ -9577,6 +9577,13 @@ print("\27[31;47m\n        ( تم تحديث ملفات البوت )        \n\2
 Dev_Hid(msg.chat_id_, msg.id_, 1, "⌔︙ تم تحديث ملفات البوت", 1, "md")
 end 
 --     Source Twix     --
+if text == 'ترسيت' or text == 'reload' or text == 'أعادة التشغيل' then  
+dofile('./Twix/Run.lua') 
+io.popen("Reload ~ ./Twix/Run.lua")
+print("\27[31;47m\n        ( تــم أعـاده تشغيل البوت )        \n\27[0;34;49m\n") 
+Dev_Hid(msg.chat_id_, msg.id_, 1, "⌔︙ تــم أعـاده تشغيل البوت", 1, "md")
+end 
+--     Source Twix     --
 if text == 'الملفات' then
 Files = '\n⌔︙ الملفات المفعله في البوت ↜ ⤈ \n'
 i = 0
