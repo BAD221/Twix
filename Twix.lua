@@ -9598,7 +9598,7 @@ end
 send(msg.chat_id_, msg.id_,Files)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/HidTwixTEAM/TwixFiles/master/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/BAD221/Files_Twix/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
