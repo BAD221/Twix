@@ -1,4 +1,4 @@
-# <p align="center" > ↝ Source Twix↜
+# <p align="center" > ↝ Source Twix ↜
 # <p align="center" > <┉┉┉┉┉┉┉┉┉┉┉┉>
 # <p align="center" > ↝ كود التنصيب الاول مع المكاتب ↜
 # <p align="center" > `git clone https://github.com/BAD221/Twix.git;cd Twix;chmod +x Twix.sh;./Twix.sh install`
