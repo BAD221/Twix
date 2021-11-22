@@ -9116,6 +9116,42 @@ return false
 end
 end 
 --     Source Twix     --
+if text == "تفعيل اليوتيوب" and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = DevHid:get(Twix..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..DevHid:get(Twix..'DevHid3')..']')
+end
+return false
+end
+DevHid:del(Twix..'searchinbot'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,"⌔︙تم تفعيل يوتيوب المجموعه") 
+return false  
+end
+if text == "تعطيل اليوتيوب" and Addictive(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = DevHid:get(Twix..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⌔︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⌔︙قنـاة البـوت ←  ['..DevHid:get(Twix..'DevHid3')..']')
+end
+return false
+end
+DevHid:set(Twix..'searchinbot'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,"⌔︙تم تعطيل يوتيوب المجموعه") 
+return false  
+end
+if not DevHid:get(Twix..'searchinbot'..msg.chat_id_) then
+if text and text:match('^بحث (.*)$') then 
+local TextSearch = text:match('^بحث (.*)$') 
+local msg_id = msg.id_/2097152/0.5
+local done = json:decode(https.request("https://black-source.tk/BlackTeAM/searchinbot.php?token="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
+end
+end
+--     Source Twix     --
 if text and text == "تغيير اسم البوت" or text and text == "وضع اسم البوت" or text and text == "تغير اسم البوت" then
 if not SecondSudo(msg) then
 Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ للمطور الاساسي فقط ', 1, 'md')
