@@ -7536,7 +7536,7 @@ Hid = math.random(3,1002);
 local Text ='*⌔  تم اختيار صورة الانمي لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
-{{text = '⌯ 𝘁𝗲𝗲𝗺 𝗸𝗲𝗹𝗼𝗮 ⌯',url="t.me/F_L_3"}},
+{{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Hid..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
