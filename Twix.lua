@@ -3818,19 +3818,15 @@ if text == "ايدي المجموعه" and ChCheck(msg) then Dev_Hid(msg.chat_id
 if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' or text == 'حذف سحكاتي' or text == 'حذف تعديلاتي' then DevHid:del(Twix..'Hid:EditMsg'..msg.chat_id_..msg.sender_user_id_) Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم حذف جميع تعديلاتك بنجاح' , 1, 'md') end
 if text == 'مسح جهاتي' or text == 'مسح اضافاتي' or text == 'حذف جهاتي' or text == 'حذف اضافاتي' then DevHid:del(Twix..'Hid:ContactNumber'..msg.chat_id_..':'..msg.sender_user_id_) Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ تم حذف جميع جهاتك المضافه' , 1, 'md') end
 --     Source Twix     --
-if text == "المطور" then 
-local DevCh1 = DevHid:get(Twix.."DevHid3")
-local DevText = DevHid:get(Twix.."DevText")
-if DevCh1 then DevCh = '\n⌔︙ *Dev Ch* ↬ ['..DevCh1..']' else DevCh = '' end
-tdcli_function({ID="GetUser",user_id_=DevId},function(arg,dp) 
-if dp.username_ ~= false then DevUser = '@'..dp.username_ else DevUser = dp.first_name_ end
-if DevText then
-Dev_Hid(msg.chat_id_, msg.id_, 1, DevText, 1, "md")
-else
-Dev_Hid(msg.chat_id_, msg.id_, 1, '⌔︙ *Dev User* ↬ ['..DevUser..']\n⌔︙ *Dev Id* ↬ '..DevId..''..DevCh, 1, "md")
-end
+if text == 'المطور' then
+tdcli_function({ID="GetUser",user_id_=DevId},function(arg,result)
+local msg_id = msg.id_/2097152/0.5
+Text = "*⌔︙ Dev Name ⤌ * ["..result.first_name_.."](T.me/"..result.username_..")\n*⌔︙ Dev User ⤌* [@"..result.username_.."]"
+keyboard = {}
+keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_ or F_L_3}}}
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)
-end 
+end
 --     Source Twix     --
 if text and text:match('^هينه @(.*)') and ChCheck(msg) or text and text:match('^هينها @(.*)') then 
 if not DevHid:get(Twix..'Hid:Lock:Stupid'..msg.chat_id_) then
