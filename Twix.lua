@@ -7522,18 +7522,18 @@ end
 end
 --     Source Twix     --
 if text == "تفعيل ريمكس" and Manager(msg) and ChCheck(msg) or text == "تفعيل الريمكس" and Manager(msg) and ChCheck(msg) then
-local TwixTeam = '⌔  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔  تم تفعيل الريمكس'
+local TwixTeam = '⌔︙  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔︙  تم تفعيل الريمكس'
 Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
 DevHid:del(Twix..'Hid:Remix:Hid'..msg.chat_id_) 
 end
 if text == "تعطيل ريمكس" and Manager(msg) and ChCheck(msg) or text == "تعطيل الريمكس" and Manager(msg) and ChCheck(msg) then
-local TwixTeam = '⌔  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔  تم تعطيل الريمكس'
+local TwixTeam = '⌔︙  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔︙  تم تعطيل الريمكس'
 Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
 DevHid:set(Twix..'Hid:Remix:Hid'..msg.chat_id_,true)  
 end
 if text and (text == "ريمكس" or text == "↫ ريمكس ⌔") and not DevHid:get(Twix..'Hid:Remix:Hid'..msg.chat_id_) and ChCheck(msg) then
 Hid = math.random(2,612); 
-local Text ='*⌔  تم اختيار الريمكس لك*'
+local Text ='*⌔︙  تم اختيار الريمكس لك*'
 keyboard = {}  
 keyboard.inline_keyboard = { 
 {{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax"}},
