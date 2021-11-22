@@ -7521,6 +7521,27 @@ end
 end
 end
 --     Source Twix     --
+if text == "تفعيل انمي" and Manager(msg) and ChCheck(msg) or text == "تفعيل الانمي" and Manager(msg) and ChCheck(msg) then
+local TwixTeam = '⌔  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔  تم تفعيل الانمي'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
+DevHid:del(Twix..'Hid:Anime:Hid'..msg.chat_id_) 
+end
+if text == "تعطيل انمي" and Manager(msg) and ChCheck(msg) or text == "تعطيل الانمي" and Manager(msg) and ChCheck(msg) then
+local TwixTeam = '⌔  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔  تم تعطيل الانمي'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
+DevHid:set(Twix..'Hid:Anime:Hid'..msg.chat_id_,true)  
+end
+if text and (text == "انمي" or text == "↫ انمي ⌔") and not DevHid:get(Twix..'Hid:Anime:Hid'..msg.chat_id_) and ChCheck(msg) then
+Hid = math.random(3,1002); 
+local Text ='*⌔  تم اختيار صورة الانمي لك*'
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '⌯ 𝘁𝗲𝗲𝗺 𝗸𝗲𝗹𝗼𝗮 ⌯',url="t.me/F_L_3"}},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/AnimeDavid/'..Hid..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+--     Source Twix     --
 if Manager(msg) then
 if text == "فحص" or text == "فحص البوت" then
 local Check = https.request('https://api.telegram.org/bot'..TokenBot..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..Twix)
