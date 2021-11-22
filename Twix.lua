@@ -7542,6 +7542,27 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/RemixDavid/'..Hid..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 --     Source Twix     --
+if text == "تفعيل متحركه" and Manager(msg) and ChCheck(msg) or text == "تفعيل المتحركه" and Manager(msg) and ChCheck(msg) then
+local TwixTeam = '⌔︙  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔︙  تم تفعيل المتحركه'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
+DevHid:del(Twix..'Hid:gif:Hid'..msg.chat_id_) 
+end
+if text == "تعطيل متحركه" and Manager(msg) and ChCheck(msg) or text == "تعطيل المتحركه" and Manager(msg) and ChCheck(msg) then
+local TwixTeam = '⌔︙  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔︙  تم تعطيل المتحركه'
+Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
+DevHid:set(Twix..'Hid:gif:Hid'..msg.chat_id_,true)  
+end
+if text and (text == "متحركه" or text == "↫ متحركه ⌔") and not DevHid:get(Twix..'Hid:gif:Hid'..msg.chat_id_) and ChCheck(msg) then
+Hid = math.random(2,1075); 
+local Text ='*⌔︙  تم اختيار المتحركه لك*'
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = '⌔︙ Twix TEAM .',url="t.me/x_xxax"}},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendanimation?chat_id=' .. msg.chat_id_ .. '&animation=https://t.me/GifDavid/'..Hid..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+--     Source Twix     --
 if text == "تفعيل انمي" and Manager(msg) and ChCheck(msg) or text == "تفعيل الانمي" and Manager(msg) and ChCheck(msg) then
 local TwixTeam = '⌔︙  اهلا عزيزي ↫ '..HidRank(msg)..' \n⌔︙  تم تفعيل الانمي'
 Hidmoned(msg.chat_id_, msg.sender_user_id_, msg.id_, TwixTeam, 14, string.len(msg.sender_user_id_))
